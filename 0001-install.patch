@@ -1,0 +1,32 @@
+From 51237d527596967e3f099beacb8c47b5fe6567ed Mon Sep 17 00:00:00 2001
+From: wjyrich <1071633242@qq.com>
+Date: Wed, 7 Aug 2024 19:04:59 +0800
+Subject: [PATCH] install
+
+---
+ androidprocmon.pro | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/androidprocmon.pro b/androidprocmon.pro
+index b625c65..f4c3db9 100644
+--- a/androidprocmon.pro
++++ b/androidprocmon.pro
+@@ -52,11 +52,11 @@ RESOURCES += \
+ DISTFILES +=
+ 
+ binary.files += $$TARGET
+-binary.path = /usr/bin
++binary.path = $$PREFIX/bin
+ translations.files += ./translations/$$files(.qm/*.qm,true)
+-translations.path = /usr/share/$$TARGET
++translations.path = $$PREFIX/share/$$TARGET
+ icon.files += images/computer.png
+-icon.path += /usr/share/icons
++icon.path += $$PREFIX/share/icons
+ desktop.files += $${TARGET}.desktop
+-desktop.path += /usr/share/applications/
++desktop.path += $$PREFIX/share/applications/
+ INSTALLS += binary translations icon desktop
+-- 
+2.43.4
+
