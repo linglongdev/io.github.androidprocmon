@@ -1,0 +1,28 @@
+version: "1"
+
+package:
+  id: io.github.androidprocmon
+  name: androidprocmon
+  version: 0.0.8.3
+  kind: app
+  description: |
+    Android process monitor allows to monitor processes using top and dumpsys utils through ADB (actually some kind of GUI)
+
+command:
+  - /opt/apps/io.github.androidprocmon/files/bin/androidprocmon
+
+base: org.deepin.foundation/23.0.0
+runtime: org.deepin.Runtime/23.0.1
+
+sources:
+  - kind: git
+    url: https://github.com/coozoo/androidprocmon.git
+    version: master
+    commit: 926b9ed3afb5f492a7ef5f643941c1ee4d11e882
+
+build: |
+  cd /project/linglong/sources/androidprocmon.git
+  git apply ../../../0001-install.patch
+  qmake -makefile PREFIX=${PREFIX} LIB_INSTALL_DIR=${PREFIX}/lib/${TRIPLET}
+  make
+  make install
